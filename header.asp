@@ -1,9 +1,3 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
 <nav class="cyan darken-4">
 	<div class="nav-wrapper">
 		<a href="#!" class="brand-logo">Logo</a>
@@ -83,6 +77,11 @@
 			<li>
 				<a id="perfil">
 					<i class="material-icons">account_circle</i>
+				</a>
+			</li>
+			<li>
+				<a id="logout" href="index.asp">
+					<i class="material-icons">cancel</i>
 				</a>
 			</li>
 		</ul>
@@ -168,4 +167,11 @@
 	});
 
 	$(".dropdown-trigger").dropdown();
+
+	$('#logout').click(function(){
+		$.ajax({
+			url: "logout.asp",
+		}).done(function() {
+		});
+	});
 </script>

@@ -1,4 +1,5 @@
-<%@ LANGUAGE = "VBSCRIPT" %>
+<!--#include file="Conexao.asp"-->
+<!--#include file="acesso.asp"-->
 <!--#include file="header.asp"-->
 
 <div id="titulo">
@@ -39,8 +40,25 @@
             <input name="email" id="email" type="text" style="margin-bottom: 25px;">
         </div> 
         <div>
-            <a id="enviar" href="usuario_cadastrar_script.asp">Cadastrar</a>
+            <a id="enviar" href="javascript:">Cadastrar</a>
         </div>
     </form>
 </div>
 <!--#include file="footer.asp" -->
+<script language="javascript">
+    $(document).keydown(function(e){
+        if (e.keyCode == 13)
+            $('#enviar').click()
+    });
+
+    $('#enviar').click(function(){
+        $.ajax({
+            type: "POST",
+            url: 'usuario_cadastrar_script.asp',
+            data: $('#form1').serialize(), 
+            success: function(data){
+                location.href="usuario_cadastrar.asp"
+            }
+        });
+    });
+</script>

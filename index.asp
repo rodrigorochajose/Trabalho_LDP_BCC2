@@ -1,7 +1,4 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
-<!DOCTYPE html>
+<!--#include file="Conexao.asp"-->
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -15,12 +12,11 @@
             <div class="col s8 offset-s2 m6 offset-m3">
                 <div class="card center-align">
                     <div class="card-image">
-                        <img class="activator" src="https://o.aolcdn.com/images/dims3/GLOB/crop/5760x2880+0+480/resize/630x315!/format/jpg/quality/85/http%3A%2F%2Fo.aolcdn.com%2Fhss%2Fstorage%2Fmidas%2F1e6a11c0ceb369bee739518f2618916d%2F205881769%2Fhealth-food-for-fitness-picture-id855098134">
+                        <img class="activator" src="./imagem/index_bg.png">
                     </div>
                     <div class="card-content grey lighten-4">
-                        <div>
                             <div class="row">
-                                <form action="" method="post">
+                                <form action="javascript:" method="post" name="form1" id="form1">
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">account_circle</i>
                                         <input autocomplete="off" id="usuario" name="usuario" type="text" class="validate">
@@ -28,25 +24,43 @@
                                     </div> 
                                     <div class="input-field col s12">
                                         <i class="material-icons prefix">vpn_key</i>
-                                        <input autocomplete="off" id="senha" name="senha" type="text" class="validate">
+                                        <input autocomplete="off" type="password" id="senha" name="senha" type="text" class="validate">
                                         <label for="senha">Senha</label>
                                     </div>  
-                                    <div>
-                                        <button type="submit" class="waves-effect waves-light btn red"><i class="material-icons right">arrow_forward</i>Acessar</button>
+                                    <div class="input-field col s12">
+                                        <a id="enviar" href="javascript:" class="waves-effect waves-light btn light-blue darken-4" style="height: 45px;">
+                                            <i class="material-icons right">arrow_forward</i>
+                                            <span>Acessar</span>
+                                        </a>
                                     </div>                             
                                 </form>                          
-                            </div>                       
-                        </div>
+                            </div>   
                     </div>
                 </div>            
             </div>
         </div>
     </div>
 </body>
-  
-    <script src="text/javascript">
-        $(document).ready(function(){
-            $('.tabs').tabs();
-        });         
-    </script>
+
+<script language="javascript">
+    $(document).ready(function(){
+        $('.tabs').tabs();
+    });         
+
+    $(document).keydown(function(e){
+        if (e.keyCode == 13)
+            $('#enviar').click()
+    });
+
+    $('#enviar').click(function(){
+        $.ajax({
+            type: "POST",
+            url: 'index_script.asp',
+            data: $('#form1').serialize(), 
+            success: function(data){
+                location.href = "home.asp"
+            }
+        });
+    });
+</script>
 </html>
