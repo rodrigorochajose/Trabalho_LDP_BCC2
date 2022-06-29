@@ -1,5 +1,6 @@
 <!--#include file="Conexao.asp"-->
 <!--#include file="acesso.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
 
 <%

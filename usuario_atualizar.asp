@@ -1,7 +1,7 @@
 <!--#include file="Conexao.asp"-->
-<!--#include file="acesso.asp"-->
+<!--#include file="acesso_admin.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
-
 <%
     id = Request.QueryString("id")
 
@@ -129,7 +129,7 @@
         padding: 7px;
         background: #26a69a;
         color: white !important;
-        margin-left: 150px;
+        margin-left: 250px;
         font-weight: bold;
     }
 

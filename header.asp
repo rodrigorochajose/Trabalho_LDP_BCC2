@@ -1,7 +1,10 @@
 <nav class="black">
 	<div class="nav-wrapper">
-		<a href="#!" class="brand-logo">Logo</a>
+		<a href="home.asp" class="brand-logo"> 
+			<img class="logo" src="/imagem/logo.png">
+			</a>
 		<ul style="margin-left:400px">
+		<% If Session("user") = 1 Then %>
 			<li class="menu_li">
 				<a class="dropdown-trigger" href="#!" data-target="dropdown1">
 					Usuário
@@ -16,6 +19,7 @@
 					</li>
 				</ul>
 			</li>
+		<% End If %>
 
 			<li class="menu_li">
 				<a class="dropdown-trigger" href="#!" data-target="dropdown2">
@@ -70,12 +74,12 @@
 				</a>
 			</li>
 			<li>
-				<a id="perfil">
+				<a href="perfil.asp">
 					<i class="material-icons">account_circle</i>
 				</a>
 			</li>
 			<li>
-				<a id="logout" href="index.asp">
+				<a href="logout.asp">
 					<i class="material-icons">cancel</i>
 				</a>
 			</li>
@@ -107,15 +111,14 @@
 	.dropdown-content li>a, .dropdown-content li>span {
 		font-size: 14px;
 	}
+
+	.logo {
+		width: 55px;
+		height: 55px;
+		margin-left: 10px;
+	}
 </style>
 
 <script>
 	$(".dropdown-trigger").dropdown();
-
-	$('#logout').click(function(){
-		$.ajax({
-			url: "logout.asp",
-		}).done(function() {
-		});
-	});
 </script>

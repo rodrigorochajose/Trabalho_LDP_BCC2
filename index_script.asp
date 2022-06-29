@@ -5,16 +5,15 @@
 
     Set Reg = Server.CreateObject("ADODB.recordset")
 
-    SQL = "SELECT login, password FROM usuario WHERE "& where &" "
-
+    SQL = "SELECT id, login, password FROM usuario WHERE "& where &" "
     Reg.Open SQL, Con
 
     If NOT Reg.EOF Then 
-        Session("user") = Request.Form("usuario")
+        Session("user") = Reg("id").Value
     Else 
-       Session("user") = ""
+        Session("user") = ""
     End If
-
+    
     Reg.Close()
     Set Reg = Nothing
 %>

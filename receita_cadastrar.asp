@@ -1,4 +1,6 @@
 <!--#include file="Conexao.asp"-->
+<!--#include file="acesso.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
 
 <table style="border-collapse: unset; margin-left: 200px;">
@@ -56,14 +58,23 @@
             $('#enviar').click()
     });
 
-    $('#enviar').click(function(){
-        $.ajax({
-            type: "POST",
-            url: 'receita_cadastrar_script.asp',
-            data: $('#form1').serialize(), 
-            success: function(data){
-                location.href="receita_cadastrar.asp"
-            }
-        });
+    $('#enviar').on("click", function(){
+        if ($('#nome').val().length == 0){
+            alert("O campo 'Nome' precisa ser preenchido.")
+        }else if ($('#desc').val().length == 0){
+            alert("O campo 'Descrição' precisa ser preenchido.")
+        }else if ($('#valor').val().length == 0){
+            alert("O campo 'Valor' precisa ser preenchido.")
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: 'receita_cadastrar_script.asp',
+                data: $('#form1').serialize(), 
+                success: function(data){
+                    location.href="receita_cadastrar.asp"
+                }
+            });
+        }
     });
 </script>

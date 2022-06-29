@@ -1,5 +1,6 @@
 <!--#include file="Conexao.asp"-->
-<!--#include file="acesso.asp"-->
+<!--#include file="acesso_admin.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
 
 <table style="border-collapse: unset; margin-left: 200px;">
@@ -18,13 +19,13 @@
 </div>
 
 <div id="main">
-    <form action="javascript:" method="post" name="form1" id="form1" class="">
-        <div class="">
+    <form action="javascript:" method="post" name="form1" id="form1">
+        <div>
             <label for="user">
                 Login
             </label>
             <input name="user" id="user" type="text" style="margin-bottom: 25px;">
-                
+            
             <label for="pwd">
                 Senha 
             </label>
@@ -56,11 +57,9 @@
     </form>
 </div>
 
-<div id="showpwd">
-    <a id="botao" href="#">
-        <i class="material-icons">remove_red_eye</i>
-    <a>
-</div>
+<a href="#" id="show_password" name="show_password">
+    <i class="material-icons">remove_red_eye</i>
+</a>  
 
 <!--#include file="footer.asp" -->
 <script language="javascript">
@@ -69,22 +68,40 @@
             $('#enviar').click()
     });
 
-    $('#enviar').click(function(){
-        $.ajax({
-            type: "POST",
-            url: 'usuario_cadastrar_script.asp',
-            data: $('#form1').serialize(), 
-            success: function(data){
-                location.href="usuario_cadastrar.asp"
-            }
-        });
+    $('#enviar').on("click", function(){
+        if ($('#user').val().length == 0){
+            alert("O campo 'Login' precisa ser preenchido.")
+        }else if ($('#pwd').val().length == 0){
+            alert("O campo 'Senha' precisa ser preenchido.")
+        }else if ($('#nome').val().length == 0){
+            alert("O campo 'Nome Completo' precisa ser preenchido.")
+        }else if ($('#cpf').val().length == 0){
+            alert("O campo 'CPF' precisa ser preenchido.")
+        }else if ($('#celular').val().length == 0){
+            alert("O campo 'Celular' precisa ser preenchido.")
+        }else if ($('#email').val().length == 0){
+            alert("O campo 'E-mail' precisa ser preenchido.")
+        }
+        else {
+            $.ajax({
+                type: "POST",
+                url: 'usuario_cadastrar_script.asp',
+                data: $('#form1').serialize(), 
+                success: function(data){
+                    location.href="usuario_cadastrar.asp"
+                }
+            });
+        }
     });
 
-    $('#botao').click(function(){
-        $('#pwd').attr("type","text");
+    $('#show_password').hover(function() {
+        if ( $('#pwd').attr('type') == 'password' ) {
+            $('#pwd').attr('type', 'text');
+        } else {
+            $('#pwd').attr('type', 'password');
+        }
     });
 
-    /* ver como clicar e fazer outra coisa*/
 </script>
 
 
@@ -98,9 +115,9 @@
         margin-left: 250px;
     }
 
-    #showpwd {
+    #show_password {
         position: absolute;
         left: 1076px;
-        top: 285px;
+        top: 315px;
     }
 </style>

@@ -1,5 +1,8 @@
 <!--#include file="Conexao.asp"-->
+<!--#include file="acesso_admin.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
+
 <% If Request.QueryString("Ativo") <> "" Then
 	Ativo = Replace(Request.QueryString("Ativo"), "'", "''")
 	If Ativo = 1 Then
@@ -84,12 +87,12 @@ Titulo = "Usuário"
                 <%= Reg.Fields.Item("email").Value%>
             </td>
             <td>
-                <a href="usuario_atualizar.asp?id=<%= Reg.Fields.Item("id") %>" title="Atualizar Usuário" class="btn-floating btn-large waves-effect blue accent-4 botoes">
+                <a href="usuario_atualizar.asp?id=<%= Reg("id").Value %>" title="Atualizar Usuário" class="btn-floating btn-large waves-effect blue accent-4 botoes">
                     <i class="material-icons" style="line-height: 40px;">build</i>
                 </a>
             </td>
              <td>
-                <a href="estado_script.asp?table=usuario&id=<%= Reg.Fields.Item("id") %>&Ativo=<%= Ativo %>" title="Inativar Usuário" class="btn-floating btn-large waves-effect red darken-4 botoes">
+                <a href="estado_script.asp?table=usuario&id=<%= Reg("id").Value %>&Ativo=<%= Ativo %>" title="Inativar Usuário" class="btn-floating btn-large waves-effect red darken-4 botoes">
                     <i class="material-icons" style="line-height: 40px;">clear</i>
                 </a>
             </td>
@@ -112,6 +115,14 @@ Titulo = "Usuário"
         width: 90%;
     }
 
+    #titulo {
+        background: white;
+        width: 20%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-left: 40%;
+    }
+    
     #tabela_titulo {
         margin: 0 80;
         border: 2px solid black;

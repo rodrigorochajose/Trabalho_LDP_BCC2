@@ -1,4 +1,6 @@
 <!--#include file="Conexao.asp"-->
+<!--#include file="acesso.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
 
 <% If Request.QueryString("Ativo") <> "" Then
@@ -14,7 +16,7 @@ Else
 	label_ativo = "Pendentes"
 End If 
 
-SQL = "SELECT id, nome, descricao, valor, obs, ativo FROM objetivo WHERE ativo="& Ativo &""
+SQL = "SELECT id, nome, descricao, valor, obs, ativo FROM objetivo WHERE ativo="& Ativo &" AND id_usuario="& Session("user") &""
 
 Set Reg = Server.CreateObject("ADODB.Recordset")
 Reg.Open SQL, Con
@@ -79,7 +81,7 @@ Titulo = "Objetivos"
                 <%= Reg("descricao").Value%>
             </td>
             <td style="width: 10%">
-                <%= Reg("valor").Value%>
+                R$ <%= Reg("valor").Value%>
             </td>
             <td style="width: 15%">
                 <%= Reg("obs").Value%>
@@ -90,7 +92,7 @@ Titulo = "Objetivos"
                 </a>
             </td>
             <td style="width: 7%">
-                <a href="objetivo_atualizar.asp?id=<%= Reg("id") %>" title="Atualizar objetivo" class="btn-floating btn-large waves-effect blue accent-4 botoes">
+                <a href="objetivo_atualizar.asp?id=<%= Reg("id").Value %>" title="Atualizar objetivo" class="btn-floating btn-large waves-effect blue accent-4 botoes">
                     <i class="material-icons" style="line-height: 40px;">build</i>
                 </a>
             </td>
@@ -112,6 +114,14 @@ Titulo = "Objetivos"
     table {
         width: 90%;
     }
+    
+    #titulo {
+        background: white;
+        width: 20%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-left: 40%;
+    }
 
     #tabela_titulo {
         margin: 0 80;
@@ -123,10 +133,16 @@ Titulo = "Objetivos"
     #tabela_conteudo {
         margin: 0 80 100 80;
         border: 2px solid black;
+        background: #eceff1 !important;
     }
 
     .botoes {
         width: 40px !important;
         height: 40px !important;
+    }
+
+    body {
+        background-image: url("https://knowurdestiny.com/wp-content/uploads/2021/12/illustration-financial-concept_53876-20606.jpg");
+        background-color: #cccccc;
     }
 </style>

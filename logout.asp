@@ -2,4 +2,5 @@
 
 <%
     Session("user") = ""
+    Response.redirect("index.asp")
 %>

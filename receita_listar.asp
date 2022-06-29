@@ -1,4 +1,6 @@
 <!--#include file="Conexao.asp"-->
+<!--#include file="acesso.asp"-->
+<!--#include file="head.asp"-->
 <!--#include file="header.asp"-->
 
 <% If Request.QueryString("Ativo") <> "" Then
@@ -14,7 +16,7 @@ Else
 	label_ativo = "a Receber"
 End If 
 
-SQL = "SELECT id, nome, descricao, valor, obs, ativo, competencia FROM receita WHERE ativo="& Ativo &" ORDER BY competencia"
+SQL = "SELECT id, nome, descricao, valor, obs, ativo, competencia FROM receita WHERE ativo="& Ativo &" AND id_usuario="& Session("user") &" ORDER BY competencia"
 
 Set Reg = Server.CreateObject("ADODB.Recordset")
 Reg.Open SQL, Con
@@ -82,7 +84,7 @@ Titulo = "Receitas"
                 <%= Reg("descricao").Value%>
             </td>
             <td style="width: 10%">
-                <%= Reg("valor").Value%>
+                R$ <%= Reg("valor").Value%>
             </td>
             <td style="width: 15%">
                 <%= Reg("obs").Value%>
@@ -96,7 +98,7 @@ Titulo = "Receitas"
                 </a>
             </td>
             <td style="width: 7%">
-                <a href="receita_atualizar.asp?id=<%= Reg("id") %>" title="Atualizar receita" class="btn-floating btn-large waves-effect blue accent-4 botoes">
+                <a href="receita_atualizar.asp?id=<%= Reg("id").Value %>" title="Atualizar receita" class="btn-floating btn-large waves-effect blue accent-4 botoes">
                     <i class="material-icons" style="line-height: 40px;">build</i>
                 </a>
             </td>
@@ -119,6 +121,14 @@ Titulo = "Receitas"
         width: 90%;
     }
 
+    #titulo {
+        background: white;
+        width: 20%;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-left: 40%;
+    }
+
     #tabela_titulo {
         margin: 0 80;
         border: 2px solid black;
@@ -126,9 +136,11 @@ Titulo = "Receitas"
         font-weight: bold;
         color: white;
     }
+
     #tabela_conteudo {
         margin: 0 80 100 80;
         border: 2px solid black;
+        background: #eceff1;
     }
     
     #opcoes {
@@ -138,5 +150,10 @@ Titulo = "Receitas"
     .botoes {
         width: 40px !important;
         height: 40px !important;
+    }
+
+    body {
+        background-image: url("https://media.gettyimages.com/vectors/falling-american-dollar-bills-seamless-pattern-on-white-background-vector-id1198334973?k=20&m=1198334973&s=612x612&w=0&h=NAdPC4LTyRxPlERApg2WhbhqsehDkfPrfqbH_v59Jnc=");
+        background-color: #cccccc;
     }
 </style>
