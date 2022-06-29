@@ -1,6 +1,17 @@
 <!--#include file="Conexao.asp"-->
 <!--#include file="header.asp"-->
 
+<table style="border-collapse: unset; margin-left: 200px;">
+	<tr>
+		<td>
+            <a href="objetivo_listar.asp" class="waves-effect light-blue lighten-1 btn-small">
+                <i class="material-icons left">keyboard_backspace</i>
+                Voltar
+            </a>
+		</td>
+  	</tr>
+</table>
+
 <div id="titulo">
     Cadastrar Objetivo
 </div>

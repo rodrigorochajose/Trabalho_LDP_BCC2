@@ -3,16 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Sistema</title>
-            
+    <title>Sistema Financeiro</title>  
 </head>
+
 <body>
     <div class="container" style="margin-top: 50px">
         <div class="row">
             <div class="col s8 offset-s2 m6 offset-m3">
                 <div class="card center-align">
-                    <div class="card-image">
+                    <div class="card-image green lighten-1">
                         <img class="activator" src="./imagem/index_bg.png">
+                        <span style="font-weight: bold;">Sistema de Controle Financeiro Pessoal</span>
                     </div>
                     <div class="card-content grey lighten-4">
                             <div class="row">
@@ -58,7 +59,7 @@
             url: 'index_script.asp',
             data: $('#form1').serialize(), 
             success: function(data){
-                location.href = "home.asp"
+                location.href = 'home.asp'
             }
         });
     });

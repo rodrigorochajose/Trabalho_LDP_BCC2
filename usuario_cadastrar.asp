@@ -2,6 +2,17 @@
 <!--#include file="acesso.asp"-->
 <!--#include file="header.asp"-->
 
+<table style="border-collapse: unset; margin-left: 200px;">
+	<tr>
+		<td>
+            <a href="usuario_listar.asp" class="waves-effect light-blue lighten-1 btn-small">
+                <i class="material-icons left">keyboard_backspace</i>
+                Voltar
+            </a>
+		</td>
+  	</tr>
+</table>
+
 <div id="titulo">
     Cadastrar Usuário
 </div>
@@ -17,7 +28,7 @@
             <label for="pwd">
                 Senha 
             </label>
-            <input name="pwd" id="pwd" type="text" style="margin-bottom: 25px;">
+            <input name="pwd" id="pwd" type="password" style="margin-bottom: 25px;">
                 
             <label for="nome">
                 Nome Completo
@@ -27,12 +38,12 @@
             <label for="cpf">
                 CPF
             </label> 
-            <input name="cpf" id="cpf" type="text" style="margin-bottom: 25px;">
+            <input name="cpf" id="cpf" type="text" maxlength="11" style="margin-bottom: 25px;">
 
             <label for="celular">
                 Celular
             </label> 
-            <input name="celular" id="celular" type="text" style="margin-bottom: 25px;">
+            <input name="celular" id="celular" type="text" maxlength="11" style="margin-bottom: 25px;">
             
             <label for="email">
                 E-mail
@@ -44,6 +55,13 @@
         </div>
     </form>
 </div>
+
+<div id="showpwd">
+    <a id="botao" href="#">
+        <i class="material-icons">remove_red_eye</i>
+    <a>
+</div>
+
 <!--#include file="footer.asp" -->
 <script language="javascript">
     $(document).keydown(function(e){
@@ -61,4 +79,28 @@
             }
         });
     });
+
+    $('#botao').click(function(){
+        $('#pwd').attr("type","text");
+    });
+
+    /* ver como clicar e fazer outra coisa*/
 </script>
+
+
+<style>
+    #enviar {
+        border: 1px solid #9e9e9e;
+        border-radius: 5px;
+        padding: 5px;
+        background: #26a69a;
+        color: white !important;
+        margin-left: 250px;
+    }
+
+    #showpwd {
+        position: absolute;
+        left: 1076px;
+        top: 285px;
+    }
+</style>

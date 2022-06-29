@@ -1,6 +1,17 @@
 <!--#include file="Conexao.asp"-->
 <!--#include file="header.asp"-->
 
+<table style="border-collapse: unset; margin-left: 200px;">
+	<tr>
+		<td>
+            <a href="receita_listar.asp" class="waves-effect light-blue lighten-1 btn-small">
+                <i class="material-icons left">keyboard_backspace</i>
+                Voltar
+            </a>
+		</td>
+  	</tr>
+</table>
+
 <div id="titulo">
     Cadastrar Receita
 </div>
@@ -17,22 +28,26 @@
                 Descrição
             </label> 
             <input name="desc" id="desc" type="text" style="margin-bottom: 25px;">
-
-            <label for="valor">
-                Valor
-            </label> 
-            <input name="valor" id="valor" type="text" style="margin-bottom: 25px;">
             
             <label for="obs">
                 Observação
             </label> 
             <input name="obs" id="obs" type="text" style="margin-bottom: 25px;">
+
+            <label for="valor">
+                Valor
+            </label> 
+            <input name="valor" id="valor" type="text" style="margin-bottom: 25px;">
+
+            <label for="competencia">
+                Competência
+            </label> 
+            <!--#include file="check_mes.asp" -->
         </div> 
-        <div>
-            <a id="enviar" href="javascript:">Cadastrar</a>
-        </div>
+        <a id="enviar" href="javascript:">Cadastrar</a>
     </form>
 </div>
+
 <!--#include file="footer.asp" -->
 
 <script language="javascript">

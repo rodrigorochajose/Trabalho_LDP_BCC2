@@ -1,4 +1,4 @@
-<nav class="cyan darken-4">
+<nav class="black">
 	<div class="nav-wrapper">
 		<a href="#!" class="brand-logo">Logo</a>
 		<ul style="margin-left:400px">
@@ -70,11 +70,6 @@
 				</a>
 			</li>
 			<li>
-				<a id="ctt" href="#">
-					<i class="material-icons">phone</i>
-				</a>
-			</li>
-			<li>
 				<a id="perfil">
 					<i class="material-icons">account_circle</i>
 				</a>
@@ -85,50 +80,8 @@
 				</a>
 			</li>
 		</ul>
-		<div id="contatos">
-			<span style="margin-left: 150px;">
-				Canais de Atendimento:
-			</span>
-			<br>
-			<span>
-				(11) 3451-6786
-				<br>
-				<label>
-					Atendimento comercial, administrativo e suporte de Segunda a Sexta-Feira das 8h às 18h.<br>
-				</label>
-			</span>
-			<span>
-				(18) 98106 - 3553
-				<br>
-				<label>Plantão de suporte somente aos finais de semana e feriados das 8h às 22h.</label>
-			</span>
-		</div>
 	</div>
 </nav>
-
-<ul id="slide-out" class="sidenav">
-    <li>
-		<div class="user-view">
-			<div class="background">
-				<img src="imagens/empresa2.jpeg">
-			</div>
-			<img class="circle" src="imagens/perfil.jpg">
-			<span class="teal-text name">Almir Camolesi</span>
-			<span class="teal-text email">camolesi@fema.edu.br</span>
-		</div>
-	</li>
-    <li>
-		<i class="material-icons">person</i>
-		Imovel
-	</li>
-    <li>Second Link</li>
-    <li>
-		<div class="divider"></div>
-	</li>
-    <li>Subheader</li>
-    <li>Third Link With Waves</li>
-</ul>
-<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
 <style>
 	#contatos {
@@ -157,15 +110,6 @@
 </style>
 
 <script>
-	$('#ctt').click(function(){
-		$('#contatos').show()
-		$('.sidenav').sidenav();
-	});
-
-	$(document).ready(function(){
-		$('.sidenav').sidenav();
-	});
-
 	$(".dropdown-trigger").dropdown();
 
 	$('#logout').click(function(){

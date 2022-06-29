@@ -17,5 +17,4 @@
 
     Reg.Close()
     Set Reg = Nothing
-
 %>
